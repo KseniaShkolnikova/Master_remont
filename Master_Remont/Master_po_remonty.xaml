@@ -33,7 +33,7 @@
                     <DataGridTextColumn Binding="{Binding ReceptionDate}" Header="Дата приема" />
                 </DataGrid.Columns>
             </DataGrid>
-        <Grid Grid.Row="1" Grid.Column="2">
+        <Grid Margin="5,0" Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="74*"/>
                 <RowDefinition Height="185*"/>
@@ -41,7 +41,7 @@
             </Grid.RowDefinitions>
             <TextBlock Text="  Статус" FontSize="30" Foreground="White" VerticalAlignment="Bottom"/>
             <Border  CornerRadius="30" Margin="5,0" Height="60" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
-                <ComboBox Margin="5" Background="#B6B6B6" SelectionChanged="ComboBox_SelectionChanged"/>
+                <ComboBox FontSize="15" Name="combobox" Margin="5" Background="#B6B6B6" />
             </Border>
             <Button
                 Grid.Row="2"
@@ -52,7 +52,7 @@
                 Name="update"
                 materialDesign:ButtonAssist.CornerRadius="20"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" >
+                ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="update_Click" >
                 <TextBlock FontSize="20" Foreground="#FFC100"
                            Text="Сохранить" />
             </Button>

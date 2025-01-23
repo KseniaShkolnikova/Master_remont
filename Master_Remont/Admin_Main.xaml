@@ -1,0 +1,74 @@
+﻿<Page x:Class="Master_Remont.Admin_Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Master_Remont"
+      mc:Ignorable="d" 
+                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="850" d:DesignWidth="1400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Margin="15" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" SelectionChanged="datagrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Equipments.Brand}" Header="Бренд техники" />
+                <DataGridTextColumn Binding="{Binding Equipments.Model}" Header="Модель техники" />
+                <DataGridTextColumn Binding="{Binding Statuses.Names}" Header="Статус" />
+                <DataGridTextColumn Binding="{Binding Descriptionn}" Header="Описание" />
+                <DataGridTextColumn Binding="{Binding Employees.Email}" Header="Мастер" />
+                <DataGridTextColumn Binding="{Binding Clients.Email}" Header="Клиент" />
+                <DataGridTextColumn Binding="{Binding NumberOrder}" Header="Номер заказа" />
+                <DataGridTextColumn Binding="{Binding RepairCost}" Header="Итоговая стоимость" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="5,0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="  Клиент" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
+            <Border  CornerRadius="15" Margin="5,0" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
+                <ComboBox FontSize="20" Name="combobox_client" Margin="5" Background="#B6B6B6" />
+            </Border>
+            <TextBlock Text="  Техника" Grid.Row="2" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
+            <Border  CornerRadius="15" Margin="5,0" Grid.Row="3" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top"  >
+                <ComboBox FontSize="20" Name="combobox_equpment" Margin="5" Background="#B6B6B6" />
+            </Border>
+            <TextBlock Text="  Тип техники" Grid.Row="4" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
+            <Border  CornerRadius="15" Margin="5,0" Grid.Row="5" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top"  >
+                <ComboBox FontSize="20" Name="combobox_type_equpment"  Margin="5" Background="#B6B6B6" />
+            </Border>
+            <Border Margin="6" CornerRadius="15" Height="90" Background="#21201F" BorderBrush="#21201F" BorderThickness="1" Grid.Row="6"  >
+                <TextBox materialDesign:HintAssist.Hint="  Номер заказа" FontSize="20" TextWrapping="Wrap" Name="number" Foreground="White" />
+            </Border>
+            <TextBlock Text="  Мастер" Grid.Row="7" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
+            <Border  CornerRadius="15" Margin="5,0" Grid.Row="8" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top"  >
+                <ComboBox FontSize="20" Name="combobox_employee" Margin="5" Background="#B6B6B6" />
+            </Border>
+            <Button
+Grid.Row="9"
+Height="70"
+Background="#21201F"
+BorderBrush="#21201F"
+VerticalAlignment="Top"
+Name="save"
+materialDesign:ButtonAssist.CornerRadius="20"
+IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="save_Click"  >
+                <TextBlock FontSize="20" Foreground="#FFC100"
+           Text="Сохранить" />
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

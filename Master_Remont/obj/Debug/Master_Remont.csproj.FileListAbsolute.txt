@@ -32,10 +32,14 @@ C:\Users\user1\source\repos\Master_Remont\Master_Remont\bin\Debug\EntityFramewor
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\bin\Debug\EntityFramework.xml
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\bin\Debug\ru\EntityFramework.resources.dll
-C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin.g.cs
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Master_Remont_Content.g.cs
-C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin.baml
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Client_MainWindow.g.cs
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Client_MainWindow.baml
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Master_po_remonty.g.cs
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Master_po_remonty.baml
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Diagnost.g.cs
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Diagnost.baml
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Administration_Navigation.g.cs
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Main.g.cs
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Administration_Navigation.baml
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Main.baml

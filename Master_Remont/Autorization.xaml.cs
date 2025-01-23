@@ -51,7 +51,7 @@ namespace Master_Remont
                 {
                     if (item.Specialization_ID == 1)
                     {
-                        Admin admin = new Admin();
+                        Administration_Navigation admin = new Administration_Navigation();
                         admin.Show();
                         this.Hide();
                     }
@@ -61,7 +61,9 @@ namespace Master_Remont
                     }
                     else if (item.Specialization_ID == 3)
                     {
-
+                        Diagnost diagnost = new Diagnost();
+                        diagnost.Show();
+                        this.Hide();
                     }
                     else if(item.Specialization_ID == 4)
                     {

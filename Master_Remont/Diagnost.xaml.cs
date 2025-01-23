@@ -15,16 +15,18 @@ using System.Windows.Shapes;
 namespace Master_Remont
 {
     /// <summary>
-    /// Логика взаимодействия для Master_po_remonty.xaml
+    /// Логика взаимодействия для Diagnost.xaml
     /// </summary>
-    public partial class Master_po_remonty : Window
+    public partial class Diagnost : Window
     {
         private Master_RemontEntities context = new Master_RemontEntities();
-        public Master_po_remonty()
+        public Diagnost()
         {
             InitializeComponent();
-            combobox.ItemsSource = context.Statuses.ToList();
-            combobox.DisplayMemberPath = "Names";
+            combobox_status.ItemsSource = context.Statuses.ToList();
+            combobox_status.DisplayMemberPath = "Names";
+            combobox_part.ItemsSource = context.SpareParts.ToList();
+            combobox_part.DisplayMemberPath = "SparePartsName";
             List<Orders> orders = new List<Orders>();
             foreach (var item in context.Orders)
             {
@@ -35,7 +37,6 @@ namespace Master_Remont
             }
             datagrid.ItemsSource = orders;
         }
-
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
@@ -49,7 +50,9 @@ namespace Master_Remont
             var selected = datagrid.SelectedItem as Orders;
             try
             {
-                combobox.SelectedItem = selected.Statuses;
+                combobox_status.SelectedItem = selected.Statuses;
+                combobox_part.SelectedItem = selected.SpareParts;
+                description.Text = selected.Descriptionn;
             }
             catch { }
         }
@@ -57,7 +60,9 @@ namespace Master_Remont
         private void update_Click(object sender, RoutedEventArgs e)
         {
             var selected = datagrid.SelectedItem as Orders;
-            selected.Statuses = combobox.SelectedItem as Statuses;
+            selected.Statuses = combobox_status.SelectedItem as Statuses;
+            selected.SpareParts = combobox_part.SelectedItem as SpareParts;
+            selected.Descriptionn = description.Text;
 
             context.SaveChanges();
             List<Orders> orders = new List<Orders>();
@@ -69,7 +74,9 @@ namespace Master_Remont
                 }
             }
             datagrid.ItemsSource = orders;
-            combobox.SelectedItem = null;
+            combobox_status.SelectedItem = null;
+            combobox_part.SelectedItem=null;
+            description.Text = null;
         }
     }
 }

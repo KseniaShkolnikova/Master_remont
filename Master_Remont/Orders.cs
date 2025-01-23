@@ -19,18 +19,18 @@ namespace Master_Remont
         public int Equipment_ID { get; set; }
         public int Status_ID { get; set; }
         public int Employee_ID { get; set; }
-        public int Part_ID { get; set; }
+        public Nullable<int> Part_ID { get; set; }
         public int EquipmentType_ID { get; set; }
         public string Descriptionn { get; set; }
         public string ReceptionDate { get; set; }
-        public decimal RepairCost { get; set; }
+        public Nullable<decimal> RepairCost { get; set; }
         public string NumberOrder { get; set; }
     
-        public virtual Clients Clients {  get; set; }
-        public virtual Employees Employees {  get; set; }
-        public virtual Equipments Equipments {  get; set; }
-        public virtual EquipmentTypes EquipmentTypes {  get; set; }
-        public virtual SpareParts SpareParts {  get; set; }
-        public virtual Statuses Statuses {  get; set; }
+        public virtual Clients Clients { get; set; }
+        public virtual Employees Employees { get; set; }
+        public virtual Equipments Equipments { get; set; }
+        public virtual EquipmentTypes EquipmentTypes { get; set; }
+        public virtual SpareParts SpareParts { get; set; }
+        public virtual Statuses Statuses { get; set; }
     }
 }
