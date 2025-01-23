@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="964796735b3b42b797acf090aa24ba14" Name="Diagram1">
+        <EntityTypeShape EntityType="Master_RemontModel.Clients" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.Employees" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.Equipments" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.EquipmentTypes" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.Orders" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.Positions" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.SpareParts" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.Specializations" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Master_RemontModel.Statuses" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Client_I__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Employees__Posit__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Employees__Speci__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Employee__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Equipmen__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Equipmen__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Part_ID__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Status_I__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
