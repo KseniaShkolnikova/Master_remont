@@ -23,7 +23,15 @@ namespace Master_Remont
         public Diagnost()
         {
             InitializeComponent();
-            combobox_status.ItemsSource = context.Statuses.ToList();
+            List<Statuses> statuses = new List<Statuses>();
+            foreach (var item in context.Statuses)
+            {
+                if (item.Names == "На диагностике" || item.Names == "В ремонте")
+                {
+                    statuses.Add(item);
+                }
+            }
+            combobox_status.ItemsSource = statuses;
             combobox_status.DisplayMemberPath = "Names";
             combobox_part.ItemsSource = context.SpareParts.ToList();
             combobox_part.DisplayMemberPath = "SparePartsName";

@@ -23,7 +23,15 @@ namespace Master_Remont
         public Master_po_remonty()
         {
             InitializeComponent();
-            combobox.ItemsSource = context.Statuses.ToList();
+            List<Statuses> statuses = new List<Statuses>();
+            foreach (var item in context.Statuses)
+            {
+                if (item.Names == "В ремонте" || item.Names == "Готов к выдаче")
+                {
+                    statuses.Add(item);
+                }
+            }
+            combobox.ItemsSource =statuses;
             combobox.DisplayMemberPath = "Names";
             List<Orders> orders = new List<Orders>();
             foreach (var item in context.Orders)

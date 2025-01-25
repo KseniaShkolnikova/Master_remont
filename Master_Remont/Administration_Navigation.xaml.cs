@@ -27,22 +27,22 @@ namespace Master_Remont
 
         private void Mainbtn_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Content = new Admin_Main();
         }
 
         private void Clienttbtn_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Content = new Admin_Clients();
         }
 
         private void Partbtn_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Content = new Admin_Part();
         }
 
         private void Employeebtn_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Content = new Admin_Employee();
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)

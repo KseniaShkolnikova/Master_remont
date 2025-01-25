@@ -38,7 +38,7 @@
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="  Клиент" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
-            <Border  CornerRadius="15" Margin="5,0" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
+            <Border  CornerRadius="15" Margin="5,0" Height="50" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
                 <ComboBox FontSize="20" Name="combobox_client" Margin="5" Background="#B6B6B6" />
             </Border>
             <TextBlock Text="  Техника" Grid.Row="2" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>

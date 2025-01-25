@@ -43,3 +43,9 @@ C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Administration
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Main.g.cs
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Administration_Navigation.baml
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Main.baml
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Clients.g.cs
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Clients.baml
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Part.g.cs
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Part.baml
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Employee.g.cs
+C:\Users\user1\source\repos\Master_Remont\Master_Remont\obj\Debug\Admin_Employee.baml

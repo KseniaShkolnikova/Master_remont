@@ -79,8 +79,17 @@
     <Compile Include="Administration_Navigation.xaml.cs">
       <DependentUpon>Administration_Navigation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Clients.xaml.cs">
+      <DependentUpon>Admin_Clients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Employee.xaml.cs">
+      <DependentUpon>Admin_Employee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Main.xaml.cs">
       <DependentUpon>Admin_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Part.xaml.cs">
+      <DependentUpon>Admin_Part.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autorization.xaml.cs">
       <DependentUpon>Autorization.xaml</DependentUpon>
@@ -143,7 +152,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Admin_Clients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin_Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin_Part.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
