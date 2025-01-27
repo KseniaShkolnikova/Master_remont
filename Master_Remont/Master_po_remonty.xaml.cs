@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Master_Remont
 {
@@ -20,9 +21,11 @@ namespace Master_Remont
     public partial class Master_po_remonty : Window
     {
         private Master_RemontEntities context = new Master_RemontEntities();
+        string em;
         public Master_po_remonty(string email)
         {
             InitializeComponent();
+            em = email;
             List<Statuses> statuses = new List<Statuses>();
             foreach (var item in context.Statuses)
             {
@@ -31,12 +34,12 @@ namespace Master_Remont
                     statuses.Add(item);
                 }
             }
-            combobox.ItemsSource =statuses;
+            combobox.ItemsSource = statuses;
             combobox.DisplayMemberPath = "Names";
             List<Orders> orders = new List<Orders>();
             foreach (var item in context.Orders)
             {
-                if (item.Status_ID == 1 || item.Status_ID == 2 || item.Status_ID == 3)
+                if (item.Status_ID == 1 || item.Status_ID == 2 || item.Status_ID == 5)
                 { 
                     if (item.Employees.Email == email)
                     {
@@ -79,9 +82,12 @@ namespace Master_Remont
                     List<Orders> orders = new List<Orders>();
                     foreach (var item in context.Orders)
                     {
-                        if (item.Status_ID == 1 || item.Status_ID == 2 || item.Status_ID == 3)
+                        if (item.Status_ID == 1 || item.Status_ID == 2 || item.Status_ID == 5)
                         {
-                            orders.Add(item);
+                            if (item.Employees.Email == em)
+                            {
+                                orders.Add(item);
+                            }
                         }
                     }
                     datagrid.ItemsSource = orders;

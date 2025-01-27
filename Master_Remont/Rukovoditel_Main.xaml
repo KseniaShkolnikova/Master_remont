@@ -17,10 +17,10 @@
                 <DataGridTextColumn Binding="{Binding EquipmentTypes.Names}" Header="Тип техникм" />
                 <DataGridTextColumn Binding="{Binding Statuses.Names}" Header="Статус" />
                 <DataGridTextColumn Binding="{Binding Clients.Email}" Header="Клиент" />
-                <DataGridTextColumn Binding="{Binding Equipments.Model}" Header="Мдель техники" />
+                <DataGridTextColumn Binding="{Binding Equipments.Model}" Header="Модель техники" />
                 <DataGridTextColumn Binding="{Binding Equipments.Brand}" Header="Бренд техники" />
                 <DataGridTextColumn Binding="{Binding SpareParts.SparePartsName}" Header="Необходимая деталь" />
-                <DataGridTextColumn Binding="{Binding SpareParts.Price}" Header="Стоимость дктали" />
+                <DataGridTextColumn Binding="{Binding SpareParts.Price}" Header="Стоимость детали" />
                 <DataGridTextColumn Binding="{Binding RepairCost}" Header="Итоговая цена" />
             </DataGrid.Columns>
         </DataGrid>

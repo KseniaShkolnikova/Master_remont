@@ -131,7 +131,14 @@ namespace Master_Remont
             yPosition += 20;
             gfx.DrawString($"Техника: {order.Equipments.Brand} {order.Equipments.Model}", contentFont, XBrushes.Black, margin, yPosition);
             yPosition += 20;
-            gfx.DrawString($"Поломка: {order.Descriptionn}", contentFont, XBrushes.Black, margin, yPosition);
+            if(order.Descriptionn == null)
+            {
+                gfx.DrawString($"Поломка: незначительная", contentFont, XBrushes.Black, margin, yPosition);
+            }
+            else
+            {
+                gfx.DrawString($"Поломка: {order.Descriptionn}", contentFont, XBrushes.Black, margin, yPosition);
+            }
             yPosition += 30;
             gfx.DrawString($"Итоговая сумма заказа: {order.RepairCost.ToString()} рублей", repaircost, XBrushes.Black, margin, yPosition);
 

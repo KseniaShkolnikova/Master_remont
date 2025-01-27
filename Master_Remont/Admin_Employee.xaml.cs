@@ -64,26 +64,34 @@ namespace Master_Remont
                 }
                 if (valid == true)
                 {
-                    employees.Email = email.Text;
-                    if (password.Password.Length >8 && ValidationPassword(password.Password))
+                    if (email.Text.Contains("@") && email.Text.Contains("."))
                     {
-                        employees.Pasword = password.Password;
-                        employees.Positions = combobox_for_pozition.SelectedItem as Positions;
-                        employees.Specializations = combobox_specialization.SelectedItem as Specializations;
-                        context.Employees.Add(employees);
-                        context.SaveChanges();
-                        datagrid.ItemsSource = context.Employees.ToList();
-                        name.Text = null;
-                        surname.Text = null;
-                        middlename.Text = null;
-                        email.Text = null;
-                        combobox_for_pozition.SelectedItem = null;
-                        combobox_specialization.SelectedItem = null;
-                        password.Password = null;
+                        employees.Email = email.Text;
+                        if (password.Password.Length >8 && ValidationPassword(password.Password))
+                        {
+                            employees.Pasword = password.Password;
+                            employees.Positions = combobox_for_pozition.SelectedItem as Positions;
+                            employees.Specializations = combobox_specialization.SelectedItem as Specializations;
+                            context.Employees.Add(employees);
+                            context.SaveChanges();
+                            datagrid.ItemsSource = context.Employees.ToList();
+                            name.Text = null;
+                            surname.Text = null;
+                            middlename.Text = null;
+                            email.Text = null;
+                            combobox_for_pozition.SelectedItem = null;
+                            combobox_specialization.SelectedItem = null;
+                            password.Password = null;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пароль должен содержать строчные и заглавные латинские буквы, цыфры", "Не удалось добавить сотрудника");
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show("Пароль должен содержать строчные и заглавные латинские буквы, цыфры", "Не удалось добавить сотрудника");
+                        MessageBox.Show("Почта должна содержать @ и .", "Не удалось добавить сотрудника");
                     }
                 }
                 else
@@ -118,6 +126,10 @@ namespace Master_Remont
                     {
                         valid = false;
                     }
+                }
+                if (selexted.Email == email.Text)
+                {
+                    valid = true;
                 }
                 if (valid == true)
                 {

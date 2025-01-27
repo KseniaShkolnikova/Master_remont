@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -27,7 +28,12 @@ namespace Master_Remont
             prise.Add("По возрастанию");
             prise.Add("По убыванию");
             combobox_for_price.ItemsSource = prise;
-            combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
+            var allSpareParts = context.SpareParts.ToList();
+            var uniqueSpareParts = allSpareParts
+                                    .GroupBy(s => s.Manufacturer)
+                                    .Select(g => g.First())
+                                    .ToList();
+            combobox_for_manufacture.ItemsSource = uniqueSpareParts;
             combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
         }
 
@@ -114,7 +120,12 @@ namespace Master_Remont
                         manufacture.Text = null;
                         stock.Text = null;
                         price.Text = null;
-                        combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
+                        var allSpareParts = context.SpareParts.ToList();
+                        var uniqueSpareParts = allSpareParts
+                                                .GroupBy(s => s.Manufacturer)
+                                                .Select(g => g.First())
+                                                .ToList();
+                        combobox_for_manufacture.ItemsSource = uniqueSpareParts;
                         combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
                     }
                     else
@@ -206,15 +217,27 @@ namespace Master_Remont
                         selexted.SparePartsName = name.Text;
                         selexted.Manufacturer = manufacture.Text;
                         selexted.Price = Convert.ToDecimal(price.Text);
-                        selexted.QuantityInStock = Convert.ToInt16(stock.Text);
-                        context.SaveChanges();
-                        datagrid.ItemsSource = context.SpareParts.ToList();
-                        name.Text = null;
-                        manufacture.Text = null;
-                        stock.Text = null;
-                        price.Text = null;
-                        combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
-                        combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
+                        var ordersWithSelectedSparePart = context.Orders
+                                              .Where(o => o.Part_ID == selexted.ID_Part)
+                                              .ToList();
+
+                        if (ordersWithSelectedSparePart.Any())
+                        {
+                            selexted.QuantityInStock = Convert.ToInt16(stock.Text);
+                            context.SaveChanges();
+                            datagrid.ItemsSource = context.SpareParts.ToList();
+                            name.Text = null;
+                            manufacture.Text = null;
+                            stock.Text = null;
+                            price.Text = null;
+                            var allSpareParts = context.SpareParts.ToList();
+                            var uniqueSpareParts = allSpareParts
+                                                    .GroupBy(s => s.Manufacturer)
+                                                    .Select(g => g.First())
+                                                    .ToList();
+                            combobox_for_manufacture.ItemsSource = uniqueSpareParts;
+                            combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
+                        }
                     }
                     else
                     {
@@ -255,7 +278,12 @@ namespace Master_Remont
                     manufacture.Text = null;
                     stock.Text = null;
                     price.Text = null;
-                    combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
+                    var allSpareParts = context.SpareParts.ToList();
+                    var uniqueSpareParts = allSpareParts
+                                            .GroupBy(s => s.Manufacturer)
+                                            .Select(g => g.First())
+                                            .ToList();
+                    combobox_for_manufacture.ItemsSource = uniqueSpareParts;
                     combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
                 }
                 else

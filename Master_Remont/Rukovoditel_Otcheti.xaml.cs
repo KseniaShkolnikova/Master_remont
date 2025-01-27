@@ -94,10 +94,10 @@ namespace Master_Remont
             var result = query
                 .Select(item => new
                 {
-                    НомерЗаказа = item.NumberOrder,
-                    ДатаПриема = GetShortDateString(item.ReceptionDate),
+                    Номер_заказа = item.NumberOrder,
+                    Дата_приема = GetShortDateString(item.ReceptionDate),
                     Выручка = item.Revenue.ToString(), 
-                    ТипТехники = item.EquipmentType,
+                    Тип_техники = item.EquipmentType,
                     Запчасти = item.SparePartsNames,
                 }).ToList<object>();
 
@@ -189,15 +189,13 @@ namespace Master_Remont
                     yPosition += 20;
                 }
                 yPosition += 40;
-                gfx.DrawString("Запчастей (за все время):", boldFont, XBrushes.Black, new XPoint(50, yPosition));
+                gfx.DrawString("Запчасти (за все время):", boldFont, XBrushes.Black, new XPoint(50, yPosition));
                 yPosition += 20;
                 foreach (var sparePart in mostUsedSpareParts)
                 {
                     gfx.DrawString($"{sparePart.SparePartName} ({sparePart.Count})", font, XBrushes.Black, new XPoint(50, yPosition));
                     yPosition += 20;
                 }
-
-                // Сохранение PDF
                 doc.Save(filePath);
                 MessageBox.Show($" Отчет сохранен по пути: {filePath}", "Формирование отчета");
             }

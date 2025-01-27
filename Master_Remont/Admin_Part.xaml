@@ -79,7 +79,7 @@ ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="delete_Click"
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding SparePartsName}" Header="Название" />
                 <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Производитель" />
-                <DataGridTextColumn Binding="{Binding QuantityInStock}" Header="кол-во на складе" />
+                <DataGridTextColumn Binding="{Binding QuantityInStock}" Header="Кол-во на складе" />
                 <DataGridTextColumn Binding="{Binding Price}" Header="Цена за шт." />
             </DataGrid.Columns>
         </DataGrid>
