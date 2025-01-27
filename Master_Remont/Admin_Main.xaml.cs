@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
+using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace Master_Remont
 {
@@ -48,40 +49,54 @@ namespace Master_Remont
             {
                 if (item.Status_ID == 4 || item.Status_ID == 5)
                 {
-                    if (item.Status_ID == 4)
-                    {
-                        item.RepairCost = 1000 + item.SpareParts.Price * 2;
-                    }
                     orders.Add(item);
                 }
             }
             context.SaveChanges();
             datagrid.ItemsSource = orders;
         }
-
-        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public int Generate()
         {
-
+            int number = 0;
+            while (true)
+            {
+                bool result = true;
+                Random random = new Random();
+                number = random.Next(100000, 1000000);
+                foreach (var item in context.Orders)
+                {
+                    if (number.ToString() == item.NumberOrder)
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+                if (result == true)
+                {
+                    break;
+                }
+            }
+            return number;
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            Orders order = new Orders();
-            order.Clients = combobox_client.SelectedItem as Clients;
-            order.Equipments = combobox_equpment.SelectedItem as Equipments;
-            foreach (var item in context.Statuses)
+            if(combobox_client.SelectedItem != null && combobox_equpment.SelectedItem != null && combobox_employee.SelectedItem != null && combobox_type_equpment.SelectedItem != null)
             {
-                if (item.Names == "Зарегестрирован")
+                Orders order = new Orders();
+                order.Clients = combobox_client.SelectedItem as Clients;
+                order.Equipments = combobox_equpment.SelectedItem as Equipments;
+                foreach (var item in context.Statuses)
                 {
-                    order.Statuses = item;
+                    if (item.Names == "Зарегестрирован")
+                    {
+                        order.Statuses = item;
+                    }
                 }
-            }
-            order.Employees = combobox_employee.SelectedItem as Employees;
-            order.EquipmentTypes = combobox_type_equpment.SelectedItem as EquipmentTypes;
-            order.ReceptionDate = DateTime.Now.ToString("dd-mm-yyyy");
-            if (number.Text.Length == 6)
-            {
-                order.NumberOrder = number.Text;
+                order.Employees = combobox_employee.SelectedItem as Employees;
+                order.EquipmentTypes = combobox_type_equpment.SelectedItem as EquipmentTypes;
+                order.ReceptionDate = DateTime.Now.ToString("dd-MM-yyyy");
+                order.NumberOrder = Generate().ToString();
                 context.Orders.Add(order);
                 context.SaveChanges();
                 List<Orders> orders = new List<Orders>();
@@ -93,13 +108,15 @@ namespace Master_Remont
                     }
                 }
                 datagrid.ItemsSource = orders;
+                combobox_client.SelectedItem = null;
+                combobox_equpment.SelectedItem = null;
+                combobox_employee.SelectedItem = null;
+                combobox_type_equpment.SelectedItem = null;
             }
             else
             {
-                MessageBox.Show("Номер заказа должен содержать 6 цыфр", "Не удлось добавить заказ");
+                MessageBox.Show("Не все поля заполнены", "Не удалось добавить заказ");
             }
-            
-
         }
     }
 }

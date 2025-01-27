@@ -20,7 +20,7 @@ namespace Master_Remont
     public partial class Master_po_remonty : Window
     {
         private Master_RemontEntities context = new Master_RemontEntities();
-        public Master_po_remonty()
+        public Master_po_remonty(string email)
         {
             InitializeComponent();
             List<Statuses> statuses = new List<Statuses>();
@@ -36,9 +36,12 @@ namespace Master_Remont
             List<Orders> orders = new List<Orders>();
             foreach (var item in context.Orders)
             {
-                if (item.Status_ID != 4)
-                {
-                    orders.Add(item);
+                if (item.Status_ID == 1 || item.Status_ID == 2 || item.Status_ID == 3)
+                { 
+                    if (item.Employees.Email == email)
+                    {
+                        orders.Add(item);
+                    }
                 }
             }
             datagrid.ItemsSource = orders;
@@ -58,6 +61,7 @@ namespace Master_Remont
             try
             {
                 combobox.SelectedItem = selected.Statuses;
+                nomber.Text = selected.NumberOrder.ToString();
             }
             catch { }
         }
@@ -65,19 +69,33 @@ namespace Master_Remont
         private void update_Click(object sender, RoutedEventArgs e)
         {
             var selected = datagrid.SelectedItem as Orders;
-            selected.Statuses = combobox.SelectedItem as Statuses;
-
-            context.SaveChanges();
-            List<Orders> orders = new List<Orders>();
-            foreach (var item in context.Orders)
+            if (selected != null)
             {
-                if (item.Status_ID != 4)
+                if (combobox.SelectedItem != null)
                 {
-                    orders.Add(item);
+                    selected.Statuses = combobox.SelectedItem as Statuses;
+
+                    context.SaveChanges();
+                    List<Orders> orders = new List<Orders>();
+                    foreach (var item in context.Orders)
+                    {
+                        if (item.Status_ID == 1 || item.Status_ID == 2 || item.Status_ID == 3)
+                        {
+                            orders.Add(item);
+                        }
+                    }
+                    datagrid.ItemsSource = orders;
+                    combobox.SelectedItem = null;
+                }
+                else
+                {
+                    MessageBox.Show("Не все поля заполнены","Не удалось сохранить");
                 }
             }
-            datagrid.ItemsSource = orders;
-            combobox.SelectedItem = null;
+            else
+            {
+                MessageBox.Show("Сначала необходимо выбрать запись из списка", "Не удалось сохранить");
+            }
         }
     }
 }

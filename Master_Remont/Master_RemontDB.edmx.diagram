@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b505eddf9ce45d197fc13f4feff0062" Name="Diagram1">
+      <Diagram DiagramId="3984979a7c604fa1953761856e67615e" Name="Diagram1">
         <EntityTypeShape EntityType="Master_RemontModel.Clients" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Master_RemontModel.Employees" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="Master_RemontModel.Equipments" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
@@ -14,14 +14,14 @@
         <EntityTypeShape EntityType="Master_RemontModel.SpareParts" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="Master_RemontModel.Specializations" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Master_RemontModel.Statuses" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
-        <AssociationConnector Association="Master_RemontModel.FK__Orders__Client_I__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Client_I__5535A963" ManuallyRouted="false" />
         <AssociationConnector Association="Master_RemontModel.FK__Employees__Posit__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="Master_RemontModel.FK__Employees__Speci__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="Master_RemontModel.FK__Orders__Employee__60A75C0F" ManuallyRouted="false" />
-        <AssociationConnector Association="Master_RemontModel.FK__Orders__Equipmen__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="Master_RemontModel.FK__Orders__Equipmen__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="Master_RemontModel.FK__Orders__Part_ID__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="Master_RemontModel.FK__Orders__Status_I__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Employee__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Equipmen__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Equipmen__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Part_ID__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="Master_RemontModel.FK__Orders__Status_I__571DF1D5" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

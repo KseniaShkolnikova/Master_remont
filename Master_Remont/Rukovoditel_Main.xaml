@@ -1,0 +1,29 @@
+﻿<Page x:Class="Master_Remont.Rukovoditel_Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Master_Remont"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1400"
+      Title="Rukovoditel_Main">
+
+    <Grid>
+        <DataGrid Margin="20" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding NumberOrder}" Header="Номер заказа" />
+                <DataGridTextColumn Binding="{Binding Descriptionn}" Header="Описание" />
+                <DataGridTextColumn Binding="{Binding Employees.Email}" Header="Мастер" />
+                <DataGridTextColumn Binding="{Binding EquipmentTypes.Names}" Header="Тип техникм" />
+                <DataGridTextColumn Binding="{Binding Statuses.Names}" Header="Статус" />
+                <DataGridTextColumn Binding="{Binding Clients.Email}" Header="Клиент" />
+                <DataGridTextColumn Binding="{Binding Equipments.Model}" Header="Мдель техники" />
+                <DataGridTextColumn Binding="{Binding Equipments.Brand}" Header="Бренд техники" />
+                <DataGridTextColumn Binding="{Binding SpareParts.SparePartsName}" Header="Необходимая деталь" />
+                <DataGridTextColumn Binding="{Binding SpareParts.Price}" Header="Стоимость дктали" />
+                <DataGridTextColumn Binding="{Binding RepairCost}" Header="Итоговая цена" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

@@ -22,7 +22,7 @@
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
             <DataGrid Margin="0,0,20,20" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" SelectionChanged="datagrid_SelectionChanged">
                 <DataGrid.Columns>
@@ -41,24 +41,28 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="  Статус" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
-                <Border  CornerRadius="15" Margin="5,0" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
-                    <ComboBox FontSize="20" Name="combobox_status" Margin="5" Background="#B6B6B6" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="20" VerticalAlignment="Center" Foreground="White" Text=" Номер заказа: "/>
+                    <TextBlock FontSize="24" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" x:Name="nomber"/>
+                </Grid>
+                <Border  CornerRadius="15" Margin="5,0" Height="50" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
+                    <ComboBox materialDesign:HintAssist.Hint=" Статус" FontSize="20" Name="combobox_status" Margin="5" Background="#B6B6B6" />
                 </Border>
-                <TextBlock Text="  Деталь" Grid.Row="2" FontSize="25" Foreground="White" VerticalAlignment="Bottom"/>
-                <Border  CornerRadius="15" Margin="5,0" Height="40" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="3"  >
-                    <ComboBox FontSize="20" Name="combobox_part" Margin="5" Background="#B6B6B6" />
+                <Border  CornerRadius="15" Margin="5,0" Height="50" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="2"  >
+                    <ComboBox materialDesign:HintAssist.Hint=" Деталь" FontSize="20" Name="combobox_part" Margin="5" Background="#B6B6B6" />
                 </Border>
-                <Border Margin="6" CornerRadius="15" Height="90" Background="#21201F" BorderBrush="#21201F" BorderThickness="1" Grid.Row="4"  >
+                <Border Margin="5" CornerRadius="15" Height="90" Background="#21201F" BorderBrush="#21201F" BorderThickness="1" Grid.Row="3"  >
                     <TextBox materialDesign:HintAssist.Hint="  Описание" FontSize="20" TextWrapping="Wrap" Name="description" Foreground="White" />
                 </Border>
                 <Button
-     Grid.Row="5"
+     Grid.Row="4"
      Height="70"
      Background="#21201F"
      BorderBrush="#21201F"

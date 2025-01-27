@@ -48,6 +48,34 @@ namespace Master_Remont
                         valid1 = true;
                     }
                 }
+                foreach (var item in price.Text)
+                {
+                    if (char.IsDigit(item) == false && item != ',')
+                    {
+                        if (price.Text.Contains(','))
+                        {
+                            var parts = price.Text.Split(',');
+                            if (parts.Length > 1 && parts[1].Length != 2)
+                            {
+                                MessageBox.Show("После запятой должно быть ровно две цифры", "Не удалось добавить запчасть");
+                                break;
+                            }
+                            else
+                            {
+                                valid1 = true; 
+                            }
+                        }
+                        else
+                        {
+                            valid1 = true; 
+                        }
+                    }
+                    else
+                    {
+                        valid1 = true;
+                    }
+                }
+
                 foreach (var item in stock.Text)
                 {
                     if (char.IsDigit(item) == false)
@@ -67,14 +95,38 @@ namespace Master_Remont
                     spareParts.Manufacturer = manufacture.Text;
                     spareParts.Price = Convert.ToDecimal(price.Text);
                     spareParts.QuantityInStock = Convert.ToInt16(stock.Text);
-                    context.SpareParts.Add(spareParts);
-                    context.SaveChanges();
-                    datagrid.ItemsSource = context.SpareParts.ToList();
-                    name.Text = null;
-                    manufacture.Text = null;
-                    stock.Text = null;
-                    price.Text = null;
+                    bool valid = true;
+                    foreach (var item in context.SpareParts)
+                    {
+                        if (item.SparePartsName == spareParts.SparePartsName && item.Manufacturer == spareParts.Manufacturer)
+                        {
+                            valid = false;
+                            break;
+                        }
+
+                    }
+                    if (valid == true)
+                    {
+                        context.SpareParts.Add(spareParts);
+                        context.SaveChanges();
+                        datagrid.ItemsSource = context.SpareParts.ToList();
+                        name.Text = null;
+                        manufacture.Text = null;
+                        stock.Text = null;
+                        price.Text = null;
+                        combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
+                        combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такая деталь уже существует", "Не удалось добавить");
+                    }
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены", "Не удалось добавить");
             }
 
         }
@@ -89,8 +141,35 @@ namespace Master_Remont
                 {
                     if (char.IsDigit(item) == false && item != ',')
                     {
-                        MessageBox.Show("Поле для заполнения цены может содержать только число", "Ошибка изменения");
+                        MessageBox.Show("Поле для заполнения цены может содержать только число", "Ошибка создания");
                         break;
+                    }
+                    else
+                    {
+                        valid1 = true;
+                    }
+                }
+                foreach (var item in price.Text)
+                {
+                    if (char.IsDigit(item) == false && item != ',')
+                    {
+                        if (price.Text.Contains(','))
+                        {
+                            var parts = price.Text.Split(',');
+                            if (parts.Length > 1 && parts[1].Length != 2)
+                            {
+                                MessageBox.Show("После запятой должно быть ровно две цифры", "Не удалось добавить запчасть");
+                                break;
+                            }
+                            else
+                            {
+                                valid1 = true;
+                            }
+                        }
+                        else
+                        {
+                            valid1 = true;
+                        }
                     }
                     else
                     {
@@ -111,20 +190,42 @@ namespace Master_Remont
                 }
                 if (valid1 == true && valid2==true)
                 {
-                    var selexted = datagrid.SelectedItem as SpareParts;
-                    selexted.SparePartsName = name.Text;
-                    selexted.Manufacturer = manufacture.Text;
-                    selexted.Price = Convert.ToDecimal(price.Text);
-                    selexted.QuantityInStock = Convert.ToInt16(stock.Text);
-                    context.SaveChanges();
-                    datagrid.ItemsSource = context.SpareParts.ToList();
-                    name.Text = null;
-                    manufacture.Text = null;
-                    stock.Text = null;
-                    price.Text = null;
+                    bool valid = true;
+                    foreach (var item in context.SpareParts)
+                    {
+                        if (item.SparePartsName == name.Text && item.Manufacturer == manufacture.Text && item.Price.ToString() == price.Text && item.QuantityInStock.ToString() == stock.Text)
+                        {
+                            valid = false;
+                            break;
+                        }
+
+                    }
+                    if (valid == true)
+                    {
+                        var selexted = datagrid.SelectedItem as SpareParts;
+                        selexted.SparePartsName = name.Text;
+                        selexted.Manufacturer = manufacture.Text;
+                        selexted.Price = Convert.ToDecimal(price.Text);
+                        selexted.QuantityInStock = Convert.ToInt16(stock.Text);
+                        context.SaveChanges();
+                        datagrid.ItemsSource = context.SpareParts.ToList();
+                        name.Text = null;
+                        manufacture.Text = null;
+                        stock.Text = null;
+                        price.Text = null;
+                        combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
+                        combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такая деталь уже существует", "Не удалось изменить");
+                    }
                 }
             }
-
+            else
+            {
+                MessageBox.Show("Не все поля заполнены", "Не удвлось изменить");
+            }
         }
 
         private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -145,15 +246,27 @@ namespace Master_Remont
             try
             {
                 var selexted = datagrid.SelectedItem as SpareParts;
-                context.SpareParts.Remove(selexted);
-                context.SaveChanges();
-                datagrid.ItemsSource = context.SpareParts.ToList();
-                name.Text = null;
-                manufacture.Text = null;
-                stock.Text = null;
-                price.Text = null;
+                if (selexted != null)
+                {
+                    context.SpareParts.Remove(selexted);
+                    context.SaveChanges();
+                    datagrid.ItemsSource = context.SpareParts.ToList();
+                    name.Text = null;
+                    manufacture.Text = null;
+                    stock.Text = null;
+                    price.Text = null;
+                    combobox_for_manufacture.ItemsSource = context.SpareParts.ToList();
+                    combobox_for_manufacture.DisplayMemberPath = "Manufacturer";
+                }
+                else
+                {
+                    MessageBox.Show("Сначала выберите запчасть", "Не удалось удалить");
+                }
             }
-            catch { }
+            catch 
+            {
+                MessageBox.Show("Данную запчасть нельзя удвлить, так как она уже используется в заказе", "Не удалось удалить");
+            }
         }
 
         private void clear_Click(object sender, RoutedEventArgs e)
@@ -204,5 +317,6 @@ namespace Master_Remont
                 datagrid.ItemsSource = spareParts_filtr;
             }
         }
+
     }
 }

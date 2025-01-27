@@ -16,8 +16,8 @@
             <ColumnDefinition Width="22*"/>
             <ColumnDefinition Width="353*"/>
         </Grid.ColumnDefinitions>
-        <Button Background="#21201F" x:Name="exit" Grid.Column="0" Height="70" Grid.Row="0" Click="exit_Click">
-            <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="88" />
+        <Button Background="#21201F" x:Name="exit" Grid.Column="0" Height="70" BorderBrush="#21201F" Grid.Row="0" Click="exit_Click">
+            <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="88" />
         </Button>
         <DataGrid Background="#B6B6B6" AutoGenerateColumns="False" IsReadOnly="True" FontSize="20" Grid.Row="1" Grid.Column="1" x:Name="datagrid" Margin="0,0,30,30">
             <DataGrid.Columns>

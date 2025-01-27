@@ -53,7 +53,7 @@ namespace Master_Remont
                                 bool validation = true;
                                 foreach (var item in context.Clients)
                                 {
-                                    if (password.Password == item.Pasword)
+                                    if (email.Text == item.Email)
                                     {
                                         validation = false;
                                         break;
@@ -61,7 +61,7 @@ namespace Master_Remont
                                 }
                                 foreach (var item1 in context.Employees)
                                 {
-                                    if (password.Password == item1.Pasword)
+                                    if (email.Text == item1.Email)
                                     {
                                         validation = false;
                                         break;

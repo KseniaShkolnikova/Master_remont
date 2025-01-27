@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\user1\source\repos\Master_Remont\Master_Remont\App.xaml
-12-494409086
+152058841907
 2-819095265
-29-1821865792
-22-596461986
-Administration_Navigation.xaml;Admin_Clients.xaml;Admin_Employee.xaml;Admin_Main.xaml;Admin_Part.xaml;Autorization.xaml;Client_MainWindow.xaml;Diagnost.xaml;MainWindow.xaml;Master_po_remonty.xaml;Registration.xaml;Rukovoditel_Navigation.xaml;
+321028208407
+47-1902157147
+Administration_Navigation.xaml;Admin_Clients.xaml;Admin_Employee.xaml;Admin_Main.xaml;Admin_Part.xaml;Admin_Status.xaml;Autorization.xaml;Client_MainWindow.xaml;Diagnost.xaml;MainWindow.xaml;Master_po_remonty.xaml;Registration.xaml;Rukovoditel_Main.xaml;Rukovoditel_Navigation.xaml;Rukovoditel_Otcheti.xaml;
 
-True
+False
 

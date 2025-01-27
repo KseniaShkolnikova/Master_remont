@@ -22,6 +22,24 @@ namespace Master_Remont
         public Rukovoditel_Navigation()
         {
             InitializeComponent();
+            frame.Content = new Rukovoditel_Main();
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Hide();
+        }
+
+        private void Mainbtn_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new Rukovoditel_Main();
+        }
+
+        private void otchet_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new Rukovoditel_Otcheti();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Master_Remont"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Авторизация" WindowStartupLocation="CenterScreen" Background="#474747" Height="220" Width="400">
+        Title="МастерРемонт" WindowStartupLocation="CenterScreen" Background="#474747" Height="220" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

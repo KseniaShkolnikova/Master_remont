@@ -34,56 +34,65 @@ namespace Master_Remont
 
         private void Autorizationbtn_Click(object sender, RoutedEventArgs e)
         {
-            bool verification = false;
-            foreach (var item in context.Clients)
+            if (password.Password !="" && email.Text != "")
             {
-                if (email.Text == item.Email && password.Password == item.Pasword)
+                bool verification = false;
+                foreach (var item in context.Clients)
                 {
-                    Client_MainWindow mainWindow = new Client_MainWindow(item);
-                    mainWindow.Show();
-                    this.Hide();
-                    verification = true;
+                    if (email.Text == item.Email && password.Password == item.Pasword)
+                    {
+                        Client_MainWindow mainWindow = new Client_MainWindow(item);
+                        mainWindow.Show();
+                        this.Hide();
+                        verification = true;
+                    }
+                }
+                foreach (var item in context.Employees)
+                {
+                    if (email.Text == item.Email && password.Password == item.Pasword)
+                    {
+                        if (item.Specialization_ID == 1)
+                        {
+                            Administration_Navigation admin = new Administration_Navigation();
+                            admin.Show();
+                            this.Hide();
+                        }
+                        else if (item.Specialization_ID == 2)
+                        {
+                            Rukovoditel_Navigation rukovoditel_Navigation = new Rukovoditel_Navigation();
+                            rukovoditel_Navigation.Show();
+                            this.Hide();
+                        }
+                        else if (item.Specialization_ID == 3)
+                        {
+                            Diagnost diagnost = new Diagnost();
+                            diagnost.Show();
+                            this.Hide();
+                        }
+                        else if(item.Specialization_ID == 4)
+                        {
+                            Master_po_remonty master_Po_Remonty = new Master_po_remonty(item.Email);
+                            master_Po_Remonty.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ваша должность не была определена. Попробуйте еще раз или обратитесь в поддержку", "Не удалось войти");
+                            break;
+                        }
+                        verification = true;
+                    }
+
+                }
+                if (verification == false) 
+                {
+                    MessageBox.Show("Возможно пороль или почта указаны неверно","Не удалось войти");
+                    email.Text = null; password.Password = null;
                 }
             }
-            foreach (var item in context.Employees)
+            else
             {
-                if (email.Text == item.Email && password.Password == item.Pasword)
-                {
-                    if (item.Specialization_ID == 1)
-                    {
-                        Administration_Navigation admin = new Administration_Navigation();
-                        admin.Show();
-                        this.Hide();
-                    }
-                    else if (item.Specialization_ID == 2)
-                    {
-
-                    }
-                    else if (item.Specialization_ID == 3)
-                    {
-                        Diagnost diagnost = new Diagnost();
-                        diagnost.Show();
-                        this.Hide();
-                    }
-                    else if(item.Specialization_ID == 4)
-                    {
-                        Master_po_remonty master_Po_Remonty = new Master_po_remonty();
-                        master_Po_Remonty.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ваша должность не была определена. Попробуйте еще раз или обратитесь в поддержку", "Не удалось войти");
-                        break;
-                    }
-                    verification = true;
-                }
-
-            }
-            if (verification == false) 
-            {
-                MessageBox.Show("Возможно пороль или почта указаны неверно","Не удалось войти");
-                email.Text = null; password.Password = null;
+                MessageBox.Show("Не все поля заполнены", "Не удалось войти");
             }
 
         }

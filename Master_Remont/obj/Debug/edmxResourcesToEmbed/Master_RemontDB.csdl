@@ -11,7 +11,7 @@
     <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Names" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Middlename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Client_I__5DCAEF64" FromRole="Clients" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Client_I__5535A963" FromRole="Clients" ToRole="Orders" />
   </EntityType>
   <EntityType Name="Employees">
     <Key>
@@ -27,7 +27,7 @@
     <Property Name="Middlename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Positions" Relationship="Self.FK__Employees__Posit__440B1D61" FromRole="Employees" ToRole="Positions" />
     <NavigationProperty Name="Specializations" Relationship="Self.FK__Employees__Speci__44FF419A" FromRole="Employees" ToRole="Specializations" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Employee__60A75C0F" FromRole="Employees" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Employee__5812160E" FromRole="Employees" ToRole="Orders" />
   </EntityType>
   <EntityType Name="Equipments">
     <Key>
@@ -36,7 +36,7 @@
     <Property Name="ID_Equipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Equipmen__5EBF139D" FromRole="Equipments" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Equipmen__5629CD9C" FromRole="Equipments" ToRole="Orders" />
   </EntityType>
   <EntityType Name="EquipmentTypes">
     <Key>
@@ -44,7 +44,7 @@
     </Key>
     <Property Name="ID_EquipmentType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Names" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Equipmen__628FA481" FromRole="EquipmentTypes" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Equipmen__59FA5E80" FromRole="EquipmentTypes" ToRole="Orders" />
   </EntityType>
   <EntityType Name="Orders">
     <Key>
@@ -61,12 +61,12 @@
     <Property Name="ReceptionDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="RepairCost" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="NumberOrder" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Clients" Relationship="Self.FK__Orders__Client_I__5DCAEF64" FromRole="Orders" ToRole="Clients" />
-    <NavigationProperty Name="Employees" Relationship="Self.FK__Orders__Employee__60A75C0F" FromRole="Orders" ToRole="Employees" />
-    <NavigationProperty Name="Equipments" Relationship="Self.FK__Orders__Equipmen__5EBF139D" FromRole="Orders" ToRole="Equipments" />
-    <NavigationProperty Name="EquipmentTypes" Relationship="Self.FK__Orders__Equipmen__628FA481" FromRole="Orders" ToRole="EquipmentTypes" />
-    <NavigationProperty Name="SpareParts" Relationship="Self.FK__Orders__Part_ID__619B8048" FromRole="Orders" ToRole="SpareParts" />
-    <NavigationProperty Name="Statuses" Relationship="Self.FK__Orders__Status_I__5FB337D6" FromRole="Orders" ToRole="Statuses" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Orders__Client_I__5535A963" FromRole="Orders" ToRole="Clients" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Orders__Employee__5812160E" FromRole="Orders" ToRole="Employees" />
+    <NavigationProperty Name="Equipments" Relationship="Self.FK__Orders__Equipmen__5629CD9C" FromRole="Orders" ToRole="Equipments" />
+    <NavigationProperty Name="EquipmentTypes" Relationship="Self.FK__Orders__Equipmen__59FA5E80" FromRole="Orders" ToRole="EquipmentTypes" />
+    <NavigationProperty Name="SpareParts" Relationship="Self.FK__Orders__Part_ID__59063A47" FromRole="Orders" ToRole="SpareParts" />
+    <NavigationProperty Name="Statuses" Relationship="Self.FK__Orders__Status_I__571DF1D5" FromRole="Orders" ToRole="Statuses" />
   </EntityType>
   <EntityType Name="Positions">
     <Key>
@@ -85,7 +85,7 @@
     <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="QuantityInStock" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Part_ID__619B8048" FromRole="SpareParts" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Part_ID__59063A47" FromRole="SpareParts" ToRole="Orders" />
   </EntityType>
   <EntityType Name="Specializations">
     <Key>
@@ -101,9 +101,9 @@
     </Key>
     <Property Name="ID_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Names" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Status_I__5FB337D6" FromRole="Statuses" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Status_I__571DF1D5" FromRole="Statuses" ToRole="Orders" />
   </EntityType>
-  <Association Name="FK__Orders__Client_I__5DCAEF64">
+  <Association Name="FK__Orders__Client_I__5535A963">
     <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -139,7 +139,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Employee__60A75C0F">
+  <Association Name="FK__Orders__Employee__5812160E">
     <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -151,7 +151,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Equipmen__5EBF139D">
+  <Association Name="FK__Orders__Equipmen__5629CD9C">
     <End Role="Equipments" Type="Self.Equipments" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -163,7 +163,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Equipmen__628FA481">
+  <Association Name="FK__Orders__Equipmen__59FA5E80">
     <End Role="EquipmentTypes" Type="Self.EquipmentTypes" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -175,7 +175,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Part_ID__619B8048">
+  <Association Name="FK__Orders__Part_ID__59063A47">
     <End Role="SpareParts" Type="Self.SpareParts" Multiplicity="0..1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -187,7 +187,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Status_I__5FB337D6">
+  <Association Name="FK__Orders__Status_I__571DF1D5">
     <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -209,7 +209,7 @@
     <EntitySet Name="SpareParts" EntityType="Self.SpareParts" />
     <EntitySet Name="Specializations" EntityType="Self.Specializations" />
     <EntitySet Name="Statuses" EntityType="Self.Statuses" />
-    <AssociationSet Name="FK__Orders__Client_I__5DCAEF64" Association="Self.FK__Orders__Client_I__5DCAEF64">
+    <AssociationSet Name="FK__Orders__Client_I__5535A963" Association="Self.FK__Orders__Client_I__5535A963">
       <End Role="Clients" EntitySet="Clients" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
@@ -221,23 +221,23 @@
       <End Role="Specializations" EntitySet="Specializations" />
       <End Role="Employees" EntitySet="Employees" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Employee__60A75C0F" Association="Self.FK__Orders__Employee__60A75C0F">
+    <AssociationSet Name="FK__Orders__Employee__5812160E" Association="Self.FK__Orders__Employee__5812160E">
       <End Role="Employees" EntitySet="Employees" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Equipmen__5EBF139D" Association="Self.FK__Orders__Equipmen__5EBF139D">
+    <AssociationSet Name="FK__Orders__Equipmen__5629CD9C" Association="Self.FK__Orders__Equipmen__5629CD9C">
       <End Role="Equipments" EntitySet="Equipments" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Equipmen__628FA481" Association="Self.FK__Orders__Equipmen__628FA481">
+    <AssociationSet Name="FK__Orders__Equipmen__59FA5E80" Association="Self.FK__Orders__Equipmen__59FA5E80">
       <End Role="EquipmentTypes" EntitySet="EquipmentTypes" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Part_ID__619B8048" Association="Self.FK__Orders__Part_ID__619B8048">
+    <AssociationSet Name="FK__Orders__Part_ID__59063A47" Association="Self.FK__Orders__Part_ID__59063A47">
       <End Role="SpareParts" EntitySet="SpareParts" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Status_I__5FB337D6" Association="Self.FK__Orders__Status_I__5FB337D6">
+    <AssociationSet Name="FK__Orders__Status_I__571DF1D5" Association="Self.FK__Orders__Status_I__571DF1D5">
       <End Role="Statuses" EntitySet="Statuses" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>

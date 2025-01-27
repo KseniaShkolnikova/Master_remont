@@ -15,16 +15,16 @@
             <ColumnDefinition  Width="4*"/>
             <ColumnDefinition  Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="10" Grid.Column="0">
+        <Grid Margin="5,0,5,0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="2.2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <Border  Height="70" CornerRadius="15" Background="#21201F" BorderBrush="#21201F" BorderThickness="1" Grid.Row="0"  >
                 <TextBox materialDesign:HintAssist.Hint="  Название" FontSize="20" Name="name" Foreground="White" />
@@ -33,7 +33,7 @@
                 <TextBox materialDesign:HintAssist.Hint="  Производитель" FontSize="20"  Name="manufacture" Foreground="White" />
             </Border>
             <Border Height="70" CornerRadius="15" Background="#21201F" BorderBrush="#21201F" BorderThickness="1" Grid.Row="2"  >
-                <TextBox materialDesign:HintAssist.Hint="  цена" Name="price" FontSize="20"  Foreground="White" />
+                <TextBox materialDesign:HintAssist.Hint="  Цена" Name="price" FontSize="20"  Foreground="White"  />
             </Border>
             <Border Height="70" CornerRadius="15" Background="#21201F" BorderBrush="#21201F" BorderThickness="1" Grid.Row="3"  >
                 <TextBox materialDesign:HintAssist.Hint="  Количество на складе" FontSize="20"  Name="stock" Foreground="White" />
@@ -46,7 +46,7 @@
                 Grid.Row="4"
 materialDesign:ButtonAssist.CornerRadius="20"
 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-ToolTip="MaterialDesignRaisedDarkButton with Round Corners" HorizontalAlignment="Left" Margin="0,23,0,24" Width="330" Click="create_Click" >
+ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="create_Click" >
                 <TextBlock FontSize="20" Foreground="#FFC100"
   Text="Добавить" />
             </Button>
@@ -75,7 +75,7 @@ ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="delete_Click"
   Text="Удалить" />
             </Button>
         </Grid>
-        <DataGrid Margin="20" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" SelectionChanged="datagrid_SelectionChanged" >
+        <DataGrid Margin="0,10,5,20" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" SelectionChanged="datagrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding SparePartsName}" Header="Название" />
                 <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Производитель" />
@@ -83,14 +83,14 @@ ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="delete_Click"
                 <DataGridTextColumn Binding="{Binding Price}" Header="Цена за шт." />
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Margin="0,0,10,0" Grid.Column="2">
+        <Grid Margin="0,0,5,0" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition  Height="1*"/>
                 <RowDefinition  Height="1*"/>
                 <RowDefinition  Height="4*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Фильтры и сортировка" FontSize="30" FontFamily="Inter" Foreground="White" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Фильтры" FontSize="30" FontFamily="Inter" Foreground="White" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Border  CornerRadius="15" Margin="5,0" Height="50" Background="#B6B6B6" BorderBrush="#B6B6B6" VerticalAlignment="Top" Grid.Row="1"  >
                 <ComboBox materialDesign:HintAssist.Hint="По цене" Foreground="Black" FontSize="20" Name="combobox_for_price" Margin="5" Background="#B6B6B6" SelectionChanged="combobox_for_price_SelectionChanged" />
             </Border>

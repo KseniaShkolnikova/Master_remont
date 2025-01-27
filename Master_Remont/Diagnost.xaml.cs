@@ -38,7 +38,7 @@ namespace Master_Remont
             List<Orders> orders = new List<Orders>();
             foreach (var item in context.Orders)
             {
-                if (item.Status_ID != 4)
+                if (item.Status_ID == 1 || item.Status_ID == 5 )
                 {
                     orders.Add(item);
                 }
@@ -61,6 +61,7 @@ namespace Master_Remont
                 combobox_status.SelectedItem = selected.Statuses;
                 combobox_part.SelectedItem = selected.SpareParts;
                 description.Text = selected.Descriptionn;
+                nomber.Text = selected.NumberOrder.ToString();
             }
             catch { }
         }
@@ -68,23 +69,65 @@ namespace Master_Remont
         private void update_Click(object sender, RoutedEventArgs e)
         {
             var selected = datagrid.SelectedItem as Orders;
-            selected.Statuses = combobox_status.SelectedItem as Statuses;
-            selected.SpareParts = combobox_part.SelectedItem as SpareParts;
-            selected.Descriptionn = description.Text;
-
-            context.SaveChanges();
-            List<Orders> orders = new List<Orders>();
-            foreach (var item in context.Orders)
+            if (selected != null)
             {
-                if (item.Status_ID != 4)
+                if (combobox_status.SelectedItem != null && combobox_part.SelectedItem!= null && description!= null)
                 {
-                    orders.Add(item);
+                    selected.Statuses = combobox_status.SelectedItem as Statuses;
+                    bool valid = false;
+                    SpareParts spareParts = null;
+                    foreach (var item in context.SpareParts)
+                    {
+                        if (item.SparePartsName == combobox_part.Text)
+                        {
+                            spareParts = item;
+                            valid = true;                  
+                        }
+                    }
+                    if (valid == true)
+                    {
+                        int z = spareParts.QuantityInStock;
+                        if (z > 0)
+                        {
+                            spareParts.QuantityInStock = z - 1;
+                            selected.SpareParts = combobox_part.SelectedItem as SpareParts;
+                            selected.Descriptionn = description.Text;
+
+                            context.SaveChanges();
+                            List<Orders> orders = new List<Orders>();
+                            foreach (var item1 in context.Orders)
+                            {
+                                if (item1.Status_ID == 1 || item1.Status_ID == 5)
+                                {
+                                    orders.Add(item1);
+                                }
+                            }
+                            datagrid.ItemsSource = orders;
+                            combobox_status.SelectedItem = null;
+                            combobox_part.SelectedItem = null;
+                            description.Text = null;
+                        }
+                        else
+                        {
+                            MessageBox.Show("На складе нет запчасти", "Не уалось сохранить");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Деталь не найдена", "Не уалось сохранить");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Не все поля заполнены","Не уалось сохранить");
                 }
             }
-            datagrid.ItemsSource = orders;
-            combobox_status.SelectedItem = null;
-            combobox_part.SelectedItem=null;
-            description.Text = null;
+            else
+            {
+                MessageBox.Show("Сначала выберите запись из списка", "Не уалось обновить");
+            }
         }
+            
     }
 }
+

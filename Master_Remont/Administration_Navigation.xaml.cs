@@ -51,5 +51,10 @@ namespace Master_Remont
             mainWindow.Show();
             this.Hide();
         }
+
+        private void Status_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new Admin_Status();
+        }
     }
 }

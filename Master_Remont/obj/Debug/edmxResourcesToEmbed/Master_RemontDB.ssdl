@@ -111,7 +111,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Client_I__5DCAEF64">
+  <Association Name="FK__Orders__Client_I__5535A963">
     <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -123,7 +123,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Employee__60A75C0F">
+  <Association Name="FK__Orders__Employee__5812160E">
     <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -135,7 +135,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Equipmen__5EBF139D">
+  <Association Name="FK__Orders__Equipmen__5629CD9C">
     <End Role="Equipments" Type="Self.Equipments" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -147,7 +147,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Equipmen__628FA481">
+  <Association Name="FK__Orders__Equipmen__59FA5E80">
     <End Role="EquipmentTypes" Type="Self.EquipmentTypes" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -159,7 +159,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Part_ID__619B8048">
+  <Association Name="FK__Orders__Part_ID__59063A47">
     <End Role="SpareParts" Type="Self.SpareParts" Multiplicity="0..1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -171,7 +171,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__Status_I__5FB337D6">
+  <Association Name="FK__Orders__Status_I__571DF1D5">
     <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -201,27 +201,27 @@
       <End Role="Specializations" EntitySet="Specializations" />
       <End Role="Employees" EntitySet="Employees" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Client_I__5DCAEF64" Association="Self.FK__Orders__Client_I__5DCAEF64">
+    <AssociationSet Name="FK__Orders__Client_I__5535A963" Association="Self.FK__Orders__Client_I__5535A963">
       <End Role="Clients" EntitySet="Clients" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Employee__60A75C0F" Association="Self.FK__Orders__Employee__60A75C0F">
+    <AssociationSet Name="FK__Orders__Employee__5812160E" Association="Self.FK__Orders__Employee__5812160E">
       <End Role="Employees" EntitySet="Employees" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Equipmen__5EBF139D" Association="Self.FK__Orders__Equipmen__5EBF139D">
+    <AssociationSet Name="FK__Orders__Equipmen__5629CD9C" Association="Self.FK__Orders__Equipmen__5629CD9C">
       <End Role="Equipments" EntitySet="Equipments" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Equipmen__628FA481" Association="Self.FK__Orders__Equipmen__628FA481">
+    <AssociationSet Name="FK__Orders__Equipmen__59FA5E80" Association="Self.FK__Orders__Equipmen__59FA5E80">
       <End Role="EquipmentTypes" EntitySet="EquipmentTypes" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Part_ID__619B8048" Association="Self.FK__Orders__Part_ID__619B8048">
+    <AssociationSet Name="FK__Orders__Part_ID__59063A47" Association="Self.FK__Orders__Part_ID__59063A47">
       <End Role="SpareParts" EntitySet="SpareParts" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__Status_I__5FB337D6" Association="Self.FK__Orders__Status_I__5FB337D6">
+    <AssociationSet Name="FK__Orders__Status_I__571DF1D5" Association="Self.FK__Orders__Status_I__571DF1D5">
       <End Role="Statuses" EntitySet="Statuses" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>

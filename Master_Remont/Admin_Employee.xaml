@@ -48,7 +48,7 @@
                 <ComboBox materialDesign:HintAssist.Hint="Должность" Foreground="Black" FontSize="20" Name="combobox_for_pozition" Margin="5" Background="#B6B6B6"  />
             </Border>
         </Grid>
-        <DataGrid Margin="20" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" SelectionChanged="datagrid_SelectionChanged" >
+        <DataGrid Margin="5,10,5,20" Foreground="Black" Grid.Column="1"  Background="#B6B6B6" AutoGenerateColumns="False" Name="datagrid" IsReadOnly="True" FontSize="18" SelectionChanged="datagrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия" />
                 <DataGridTextColumn Binding="{Binding Names}" Header="Имя" />
